@@ -1,8 +1,12 @@
 import React from 'react'
 import Login from './Login';
 import { Link } from 'react-router-dom';
+import {useAuth} from '../context/AuthProvider'
+import Logout from './Logout';
 
 function Navbar() {
+    const [authUser,setAuthUser] = useAuth()
+
     const [sticky,setSticky]=React.useState(false);
 
     const[theme,setTheme]=React.useState(localStorage.getItem('theme')?localStorage.getItem('theme'):'light')
@@ -46,7 +50,7 @@ function Navbar() {
     );
 
   return (
-    <div className={`z-50 max-w-screen-2xl container mx-auto md:px-20 px-4 fixed top-0 left-0 right-0 dark:bg-slate-900 dark:text-white
+    <div className={`z-50 max-w-screen-2xl container mx-auto md:px-20 px-4 fixed top-0 left-0 right-0 dark:bg-slate-800 dark:text-white
       ${sticky?"sticky-navbar shadow-md bg-base-200 duration-300 transition-all ease-in-out dark:bg-slate-600 dark:text-white":""}`}>
       <div className="navbar">
   <div className="navbar-start">
@@ -81,7 +85,7 @@ function Navbar() {
   </div>
   <div className='hidden md:block'> 
   <label className="p-2 border rounded-md flex items-center gap-2">
-  <input type="text" className="grow outline-none dark:bg-slate-900 dark:text-white" placeholder="Search" />
+  <input type="text" className="grow outline-none dark:bg-slate-800 dark:text-white" placeholder="Search" />
   <svg
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 16 16"
@@ -122,13 +126,16 @@ function Navbar() {
   </svg>
 </label>
   </div>
-  <div className="">
-    <a className="bg-black text-white px-3 py-2 hover:bg-slate-800 duration-300 rounded-md cursor-pointer"
-    onClick={()=>document.getElementById("my_modal_3").showModal()}>
-      Login
-      </a>
-      <Login />
-  </div>
+  {authUser?<Logout />:
+      <div className="">
+      <a className="bg-black text-white px-3 py-2 hover:bg-slate-800 duration-300 rounded-md cursor-pointer"
+      onClick={()=>document.getElementById("my_modal_3").showModal()}>
+        Login
+        </a>
+        <Login />
+    </div>
+    }
+  
   </div>
 </div>
     </div>

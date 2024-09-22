@@ -11,7 +11,7 @@ function Banner() {
         <p className='text-xl'>
             Lorem ipsum dolor sit, amet consectetur adipisicing elit. Magnam itaque aliquam corrupti exercitationem adipisci inventore fugiat? Laboriosam nulla officiis quia non in vero repellendus consequatur corrupti. Atque praesentium libero id!
         </p>
-        <label className="input input-bordered flex items-center gap-2 ">
+        <label className="input input-bordered flex items-center gap-2 dark:bg-slate-800 dark:text-white">
          <svg
          xmlns="http://www.w3.org/2000/svg"
          viewBox="0 0 16 16"
@@ -25,7 +25,7 @@ function Banner() {
          <input type="text" className="grow" placeholder="Email" />
         </label>
         </div>
-        <button className="mt-6 btn btn-outline btn-secondary">Secondary</button>
+        <button className="mt-6 btn btn-outline btn-secondary">Get Started</button>
       </div>
       <div className='order-1 w-full md:w-1/2'>
         <img src={banner} className='mt-20 w-90 h-200' alt="An image of books stacked on top of each other"/>

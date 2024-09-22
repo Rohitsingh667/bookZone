@@ -6,13 +6,13 @@ import Footer from ".././components/Footer"
 
 function Home() {
   return (
-    <div>
+    <>
       <Navbar />
       <Banner />
       <Freebook />
       <Footer />
-    </div>
-  )
+    </>
+  );
 }
 
-export default Home
+export default Home;
