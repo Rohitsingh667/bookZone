@@ -43,7 +43,7 @@ function Navbar() {
     const navItems=(
         <>
             <li><a href="/">Home</a></li>
-            <li><a href="/courses">Course</a></li>
+            <li><Link href="/courses">Course</Link></li>
             <li><Link to="/contact">Contact</Link></li>
             <li><a>About</a></li>
         </>
